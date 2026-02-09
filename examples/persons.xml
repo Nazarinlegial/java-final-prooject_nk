@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<records>
+  <record>
+    <total>10</total>
+    <code>200</code>
+    <seed/>
+    <data>
+      <item>
+        <birthday>1972-09-28</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Lucie</firstname>
+        <website>http://poulain.fr</website>
+        <address>
+          <zipcode>63379</zipcode>
+          <country>Grenade</country>
+          <country_code>GD</country_code>
+          <streetName>chemin Nath Masson</streetName>
+          <city>Meyer</city>
+          <street>673, boulevard Laetitia Evrard</street>
+          <latitude>-50.305502</latitude>
+          <buildingNumber>13</buildingNumber>
+          <id>1</id>
+          <longitude>-164.550901</longitude>
+        </address>
+        <gender>female</gender>
+        <phone>+33780559746</phone>
+        <id>1</id>
+        <email>paul.bernier@club-internet.fr</email>
+        <lastname>Caron</lastname>
+      </item>
+      <item>
+        <birthday>1976-05-22</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Zacharie</firstname>
+        <website>http://blanc.com</website>
+        <address>
+          <zipcode>27908</zipcode>
+          <country>Sénégal</country>
+          <country_code>SN</country_code>
+          <streetName>avenue Texier</streetName>
+          <city>Launay-les-Bains</city>
+          <street>9, impasse Claude Garcia</street>
+          <latitude>50.465694</latitude>
+          <buildingNumber>73</buildingNumber>
+          <id>1</id>
+          <longitude>-25.785863</longitude>
+        </address>
+        <gender>male</gender>
+        <phone>+33935569319</phone>
+        <id>2</id>
+        <email>rmercier@raymond.fr</email>
+        <lastname>Guyot</lastname>
+      </item>
+      <item>
+        <birthday>2012-07-19</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Benjamin</firstname>
+        <website>http://guillot.org</website>
+        <address>
+          <zipcode>52789</zipcode>
+          <country>Azerbaïdjan</country>
+          <country_code>AZ</country_code>
+          <streetName>boulevard Dupre</streetName>
+          <city>Le GallBourg</city>
+          <street>avenue Paul Daniel</street>
+          <latitude>-55.355956</latitude>
+          <buildingNumber>67</buildingNumber>
+          <id>1</id>
+          <longitude>48.841258</longitude>
+        </address>
+        <gender>male</gender>
+        <phone>+33041291222</phone>
+        <id>3</id>
+        <email>capucine47@lemoine.com</email>
+        <lastname>Herve</lastname>
+      </item>
+      <item>
+        <birthday>2003-01-07</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Véronique</firstname>
+        <website>http://richard.net</website>
+        <address>
+          <zipcode>60782</zipcode>
+          <country>Îles Vierges britanniques</country>
+          <country_code>VG</country_code>
+          <streetName>rue Denis Jacquot</streetName>
+          <city>Rossi</city>
+          <street>rue Georges Pinto</street>
+          <latitude>-31.99401</latitude>
+          <buildingNumber>660</buildingNumber>
+          <id>1</id>
+          <longitude>-85.460407</longitude>
+        </address>
+        <gender>female</gender>
+        <phone>+33536274684</phone>
+        <id>4</id>
+        <email>roger.boulanger@noos.fr</email>
+        <lastname>Pons</lastname>
+      </item>
+      <item>
+        <birthday>1944-06-17</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Gilles</firstname>
+        <website>http://mendes.com</website>
+        <address>
+          <zipcode>76423</zipcode>
+          <country>Irlande</country>
+          <country_code>IE</country_code>
+          <streetName>boulevard Pinto</streetName>
+          <city>Mathieu</city>
+          <street>9, place Vincent Perez</street>
+          <latitude>-88.767462</latitude>
+          <buildingNumber>75</buildingNumber>
+          <id>1</id>
+          <longitude>15.796861</longitude>
+        </address>
+        <gender>male</gender>
+        <phone>+33781326505</phone>
+        <id>5</id>
+        <email>corinne19@fabre.fr</email>
+        <lastname>Descamps</lastname>
+      </item>
+      <item>
+        <birthday>1987-09-24</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Joséphine</firstname>
+        <website>http://martinez.fr</website>
+        <address>
+          <zipcode>87057</zipcode>
+          <country>Tchad</country>
+          <country_code>TD</country_code>
+          <streetName>boulevard de Lacombe</streetName>
+          <city>Gilletdan</city>
+          <street>89, boulevard Jacques Pons</street>
+          <latitude>53.221064</latitude>
+          <buildingNumber>863</buildingNumber>
+          <id>1</id>
+          <longitude>-174.933171</longitude>
+        </address>
+        <gender>female</gender>
+        <phone>+33837860226</phone>
+        <id>6</id>
+        <email>vmoreno@lebrun.com</email>
+        <lastname>Bodin</lastname>
+      </item>
+      <item>
+        <birthday>1964-06-13</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Franck</firstname>
+        <website>http://renaud.com</website>
+        <address>
+          <zipcode>85782</zipcode>
+          <country>Lesotho</country>
+          <country_code>LS</country_code>
+          <streetName>place Valette</streetName>
+          <city>Mendes-sur-Mer</city>
+          <street>20, chemin de Renault</street>
+          <latitude>51.870697</latitude>
+          <buildingNumber>60</buildingNumber>
+          <id>1</id>
+          <longitude>48.597684</longitude>
+        </address>
+        <gender>male</gender>
+        <phone>+33632381662</phone>
+        <id>7</id>
+        <email>bernard61@dbmail.com</email>
+        <lastname>Petitjean</lastname>
+      </item>
+      <item>
+        <birthday>1957-09-22</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Gérard</firstname>
+        <website>http://guillon.com</website>
+        <address>
+          <zipcode>57018</zipcode>
+          <country>Grèce</country>
+          <country_code>GR</country_code>
+          <streetName>boulevard Vincent Pelletier</streetName>
+          <city>Riou</city>
+          <street>5, chemin Anaïs Hamel</street>
+          <latitude>-55.550769</latitude>
+          <buildingNumber>114</buildingNumber>
+          <id>1</id>
+          <longitude>150.134615</longitude>
+        </address>
+        <gender>male</gender>
+        <phone>+33982222705</phone>
+        <id>8</id>
+        <email>delaunay.simone@lecoq.com</email>
+        <lastname>Imbert</lastname>
+      </item>
+      <item>
+        <birthday>1948-11-20</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Alain</firstname>
+        <website>http://denis.com</website>
+        <address>
+          <zipcode>67416</zipcode>
+          <country>Saint-Barthélemy</country>
+          <country_code>BL</country_code>
+          <streetName>rue Maurice Monnier</streetName>
+          <city>Sanchez-les-Bains</city>
+          <street>57, rue Emmanuel Sanchez</street>
+          <latitude>-56.137921</latitude>
+          <buildingNumber>30</buildingNumber>
+          <id>1</id>
+          <longitude>-60.024961</longitude>
+        </address>
+        <gender>male</gender>
+        <phone>+33087419017</phone>
+        <id>9</id>
+        <email>pereira.zacharie@hotmail.fr</email>
+        <lastname>Muller</lastname>
+      </item>
+      <item>
+        <birthday>1983-12-15</birthday>
+        <image>http://placeimg.com/640/480/people</image>
+        <firstname>Martin</firstname>
+        <website>http://guibert.com</website>
+        <address>
+          <zipcode>11739</zipcode>
+          <country>Bermudes</country>
+          <country_code>BM</country_code>
+          <streetName>chemin Garnier</streetName>
+          <city>Mailletnec</city>
+          <street>rue Lambert</street>
+          <latitude>-12.323727</latitude>
+          <buildingNumber>81</buildingNumber>
+          <id>1</id>
+          <longitude>-43.671734</longitude>
+        </address>
+        <gender>male</gender>
+        <phone>+33057931030</phone>
+        <id>10</id>
+        <email>jacquot.franck@rodriguez.net</email>
+        <lastname>Dijoux</lastname>
+      </item>
+    </data>
+    <locale>fr_FR</locale>
+    <status>OK</status>
+  </record>
+</records>

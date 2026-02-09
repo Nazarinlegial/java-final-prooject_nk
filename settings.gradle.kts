@@ -1,0 +1,1 @@
+rootProject.name = "java_final_project_n_kovalchuk"
