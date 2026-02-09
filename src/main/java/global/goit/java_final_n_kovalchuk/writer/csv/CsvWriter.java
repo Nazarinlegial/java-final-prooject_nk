@@ -15,28 +15,39 @@ import java.util.TreeSet;
 
 /**
  * Writer for CSV files.
- * Writes a list of DataRecords to CSV format with headers.
+ * Writes a list of DataRecords to CSV format with optional headers.
  * Uses OpenCSV for writing with support for special characters and quoting.
  * Handles nested data structures (Map and List) by serializing them as JSON.
  */
 public class CsvWriter implements FileWriter<DataRecord> {
 
     private final ObjectMapper objectMapper;
+    private final boolean writeHeaders;
 
     /**
-     * Constructs a new CsvWriter.
+     * Constructs a new CsvWriter with headers enabled by default.
      */
     public CsvWriter() {
+        this(true);
+    }
+
+    /**
+     * Constructs a new CsvWriter with specified header writing behavior.
+     *
+     * @param writeHeaders whether to write CSV headers (true = with headers, false = without headers)
+     */
+    public CsvWriter(boolean writeHeaders) {
         this.objectMapper = new ObjectMapper();
+        this.writeHeaders = writeHeaders;
     }
 
     /**
      * Writes a list of DataRecords to a CSV file.
-     * The first row contains headers (field names), and subsequent rows contain data.
+     * Optionally writes headers (field names) in the first row based on writeHeaders flag.
      * Field names are extracted from the first record or from all records to ensure all columns are included.
      *
      * @param records list of DataRecords to write
-     * @param file    the file to write to
+     * @param file    file to write to
      * @throws FileConversionException if writing fails
      */
     public void write(List<DataRecord> records, File file) throws FileConversionException {
@@ -65,9 +76,11 @@ public class CsvWriter implements FileWriter<DataRecord> {
             try (java.io.FileWriter fileWriter = new java.io.FileWriter(file);
                  CSVWriter csvWriter = new CSVWriter(fileWriter)) {
 
-                // Write header row
-                String[] headerArray = headers.toArray(new String[0]);
-                csvWriter.writeNext(headerArray);
+                // Write header row if writeHeaders is enabled
+                if (writeHeaders) {
+                    String[] headerArray = headers.toArray(new String[0]);
+                    csvWriter.writeNext(headerArray);
+                }
 
                 // Write data rows
                 for (DataRecord record : records) {
@@ -96,7 +109,7 @@ public class CsvWriter implements FileWriter<DataRecord> {
      * For nested structures (Map and List), serializes them as JSON.
      * For primitive values, returns their string representation.
      *
-     * @param value the value to format
+     * @param value value to format
      * @return formatted string representation
      */
     private String formatValue(Object value) {

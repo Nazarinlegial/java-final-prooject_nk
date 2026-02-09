@@ -498,4 +498,118 @@ class CsvWriterTest {
         assertTrue(content.contains("Caron"), "CSV should contain first person's lastname");
         assertTrue(content.contains("paul.bernier@club-internet.fr"), "CSV should contain first person's email");
     }
+
+    @Test
+    void testWriteWithoutHeaders() throws Exception {
+        // Arrange
+        File outputFile = tempDir.resolve("output_no_headers.csv").toFile();
+        CsvWriter writer = new CsvWriter(false); // Create writer without headers
+
+        DataRecord record1 = new DataRecord();
+        record1.addField("name", "John Doe");
+        record1.addField("age", "30");
+        record1.addField("email", "john@example.com");
+
+        DataRecord record2 = new DataRecord();
+        record2.addField("name", "Jane Smith");
+        record2.addField("age", "25");
+        record2.addField("email", "jane@example.com");
+
+        List<DataRecord> records = List.of(record1, record2);
+
+        // Act
+        writer.write(records, outputFile);
+
+        // Assert
+        assertTrue(outputFile.exists());
+        assertTrue(outputFile.length() > 0);
+
+        String content = Files.readString(outputFile.toPath());
+        
+        // Verify that the file does NOT contain header row
+        // The first line should contain data, not field names
+        String[] lines = content.split("\n");
+        assertTrue(lines.length > 0, "CSV should have at least one line");
+        
+        String firstLine = lines[0].trim();
+        // First line should contain data values, not field names
+        assertTrue(firstLine.contains("John Doe"), "First line should contain first record's data");
+        assertFalse(firstLine.contains("name,age,email"), "First line should NOT contain header row");
+        
+        // Verify that data is present
+        assertTrue(content.contains("John Doe"));
+        assertTrue(content.contains("Jane Smith"));
+        assertTrue(content.contains("30"));
+        assertTrue(content.contains("25"));
+    }
+
+    @Test
+    void testWriteWithHeadersDefault() throws Exception {
+        // Arrange
+        File outputFile = tempDir.resolve("output_with_headers.csv").toFile();
+        CsvWriter writer = new CsvWriter(); // Default constructor should write headers
+
+        DataRecord record1 = new DataRecord();
+        record1.addField("name", "John Doe");
+        record1.addField("age", "30");
+
+        List<DataRecord> records = List.of(record1);
+
+        // Act
+        writer.write(records, outputFile);
+
+        // Assert
+        assertTrue(outputFile.exists());
+        assertTrue(outputFile.length() > 0);
+
+        String content = Files.readString(outputFile.toPath());
+        
+        // Verify that the file contains header row
+        String[] lines = content.split("\n");
+        assertTrue(lines.length > 0, "CSV should have at least one line");
+        
+        String firstLine = lines[0].trim();
+        // First line should contain field names
+        assertTrue(firstLine.contains("name"), "First line should contain field name 'name'");
+        assertTrue(firstLine.contains("age"), "First line should contain field name 'age'");
+        
+        // Verify that data is present in subsequent lines
+        assertTrue(content.contains("John Doe"));
+        assertTrue(content.contains("30"));
+    }
+
+    @Test
+    void testWriteWithHeadersExplicit() throws Exception {
+        // Arrange
+        File outputFile = tempDir.resolve("output_headers_explicit.csv").toFile();
+        CsvWriter writer = new CsvWriter(true); // Explicitly enable headers
+
+        DataRecord record1 = new DataRecord();
+        record1.addField("name", "John Doe");
+        record1.addField("age", "30");
+
+        List<DataRecord> records = List.of(record1);
+
+        // Act
+        writer.write(records, outputFile);
+
+        // Assert
+        assertTrue(outputFile.exists());
+        assertTrue(outputFile.length() > 0);
+
+        String content = Files.readString(outputFile.toPath());
+        
+        // Verify that the file contains header row
+        String[] lines = content.split("\n");
+        assertTrue(lines.length > 0, "CSV should have at least one line");
+        
+        String firstLine = lines[0].trim();
+        // First line should contain field names
+        assertTrue(firstLine.contains("name"), "First line should contain field name 'name'");
+        assertTrue(firstLine.contains("age"), "First line should contain field name 'age'");
+        
+        // Verify that data is present in subsequent lines
+        assertTrue(content.contains("John Doe"));
+        assertTrue(content.contains("30"));
+    }
 }

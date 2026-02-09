@@ -40,7 +40,7 @@ class CommandLineParserTest {
             () -> parser.parse(args)
         );
         
-        assertEquals("No arguments provided. Usage: --input <input-file> --output <output-file>", 
+        assertEquals("No arguments provided. Usage: --input <input-file> --output <output-file> [--csv-mapping]", 
                      exception.getMessage());
     }
 
@@ -53,7 +53,7 @@ class CommandLineParserTest {
             () -> parser.parse(args)
         );
         
-        assertEquals("No arguments provided. Usage: --input <input-file> --output <output-file>", 
+        assertEquals("No arguments provided. Usage: --input <input-file> --output <output-file> [--csv-mapping]", 
                      exception.getMessage());
     }
 
@@ -66,7 +66,7 @@ class CommandLineParserTest {
             () -> parser.parse(args)
         );
         
-        assertEquals("Missing --input flag. Usage: --input <input-file> --output <output-file>", 
+        assertEquals("Missing --input flag. Usage: --input <input-file> --output <output-file> [--csv-mapping]",
                      exception.getMessage());
     }
 
@@ -79,7 +79,7 @@ class CommandLineParserTest {
             () -> parser.parse(args)
         );
         
-        assertEquals("Missing --output flag. Usage: --input <input-file> --output <output-file>", 
+        assertEquals("Missing --output flag. Usage: --input <input-file> --output <output-file> [--csv-mapping]",
                      exception.getMessage());
     }
 
@@ -92,7 +92,7 @@ class CommandLineParserTest {
             () -> parser.parse(args)
         );
         
-        assertEquals("Missing --output flag. Usage: --input <input-file> --output <output-file>", 
+        assertEquals("Missing --output flag. Usage: --input <input-file> --output <output-file> [--csv-mapping]",
                      exception.getMessage());
     }
 
@@ -132,7 +132,7 @@ class CommandLineParserTest {
             () -> parser.parse(args)
         );
         
-        assertEquals("Missing --output flag. Usage: --input <input-file> --output <output-file>", 
+        assertEquals("Missing --output flag. Usage: --input <input-file> --output <output-file> [--csv-mapping]",
                      exception.getMessage());
     }
 

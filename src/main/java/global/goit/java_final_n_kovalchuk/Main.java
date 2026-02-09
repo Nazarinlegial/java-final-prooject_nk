@@ -19,7 +19,7 @@ public class Main {
     /**
      * Main method that parses command-line arguments and initiates file conversion.
      *
-     * @param args command-line arguments: --input <input-file> --output <output-file>
+     * @param args command-line arguments: --input <input-file> --output <output-file> [--csv-mapping]
      */
     public static void main(String[] args) {
         try {
@@ -29,6 +29,7 @@ public class Main {
 
             String inputFile = commandLineArgs.getInputFile();
             String outputFile = commandLineArgs.getOutputFile();
+            boolean csvMapping = commandLineArgs.isCsvMapping();
 
             // Validate input file
             FileValidator.validateFile(inputFile);
@@ -37,6 +38,10 @@ public class Main {
             System.out.println("==============================");
             System.out.println("Input file: " + inputFile);
             System.out.println("Output file: " + outputFile);
+            if (csvMapping) {
+                System.out.println("CSV mapping: enabled (no headers)");
+            }
+
             System.out.println();
 
             // Create converter and perform conversion
@@ -44,7 +49,7 @@ public class Main {
             File input = new File(inputFile);
             File output = new File(outputFile);
 
-            converter.convert(input, output);
+            converter.convert(input, output, csvMapping);
 
             System.out.println();
             System.out.println("Conversion completed successfully!");

@@ -58,6 +58,68 @@ java -jar build/libs/java_final_project_n_kovalchuk-1.0-SNAPSHOT.jar --input exa
 java -jar build/libs/java_final_project_n_kovalchuk-1.0-SNAPSHOT.jar --input examples/sample.csv --output output.xml
 ```
 
+## CSV-файли без заголовків (--csv-mapping)
+
+### Опис параметру
+Параметр `--csv-mapping` використовується для створення CSV-файлів без рядка заголовків. Це корисно для роботи з CSV-файлами, які мають попередньо визначений мапінг полів.
+
+### Синтаксис
+```
+java -jar build/libs/java_final_project_n_kovalchuk-1.0-SNAPSHOT.jar --input <вхідний_файл> --output <вихідний_файл> --csv-mapping
+```
+
+### Приклади використання
+
+#### JSON → CSV без заголовків
+```bash
+java -jar build/libs/java_final_project_n_kovalchuk-1.0-SNAPSHOT.jar --input examples/sample.json --output output_no_headers.csv --csv-mapping
+```
+
+**Результат (output_no_headers.csv):**
+```csv
+John Doe,30,john@example.com
+Jane Smith,25,jane@example.com
+```
+
+#### Порівняння: з заголовками та без
+
+**Заголовки (за замовчуванням):**
+```csv
+name,age,email
+John Doe,30,john@example.com
+Jane Smith,25,jane@example.com
+```
+
+**Без заголовків (--csv-mapping):**
+```csv
+John Doe,30,john@example.com
+Jane Smith,25,jane@example.com
+```
+
+#### XML → CSV без заголовків
+```bash
+java -jar build/libs/java_final_project_n_kovalchuk-1.0-SNAPSHOT.jar --input examples/sample.xml --output output_no_headers.csv --csv-mapping
+```
+
+#### persons.json → CSV без заголовків
+```bash
+java -jar build/libs/java_final_project_n_kovalchuk-1.0-SNAPSHOT.jar --input examples/persons.json --output persons_no_headers.csv --csv-mapping
+```
+
+### Коли використовувати --csv-mapping
+
+- **Імпорт у бази даних:** Коли база даних очікує CSV без заголовків і має власний мапінг полів
+- **Взаємодія з legacy-системами:** Коли старі системи не підтримують CSV з заголовками
+- **Фіксований формат:** Коли формат CSV-файлу строго визначений і не повинен містити заголовки
+- **Оптимізація розміру файлу:** Видалення рядка заголовків зменшує розмір файлу
+
+### Особливості
+
+- Флаг `--csv-mapping` є опціональним
+- За замовчуванням CSV-файли створюються з заголовками
+- Флаг працює тільки при конвертації у CSV формат
+- При використанні флага виводиться повідомлення: `CSV mapping: enabled (no headers)`
+
 ## Обробка помилок
 
 ### Приклади помилок та їх рішення

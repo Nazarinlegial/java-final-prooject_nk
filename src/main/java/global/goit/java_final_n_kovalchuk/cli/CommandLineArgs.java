@@ -8,6 +8,7 @@ public class CommandLineArgs {
 
     private final String inputFile;
     private final String outputFile;
+    private final boolean csvMapping;
 
     /**
      * Constructs a new CommandLineArgs with the specified input and output file paths.
@@ -16,8 +17,21 @@ public class CommandLineArgs {
      * @param outputFile the path to the output file
      */
     public CommandLineArgs(String inputFile, String outputFile) {
+        this(inputFile, outputFile, false);
+    }
+
+    /**
+     * Constructs a new CommandLineArgs with the specified input and output file paths
+     * and CSV mapping flag.
+     *
+     * @param inputFile  the path to the input file
+     * @param outputFile the path to the output file
+     * @param csvMapping whether to skip CSV headers (true = without headers, false = with headers)
+     */
+    public CommandLineArgs(String inputFile, String outputFile, boolean csvMapping) {
         this.inputFile = inputFile;
         this.outputFile = outputFile;
+        this.csvMapping = csvMapping;
     }
 
     /**
@@ -36,6 +50,15 @@ public class CommandLineArgs {
      */
     public String getOutputFile() {
         return outputFile;
+    }
+
+    /**
+     * Gets the CSV mapping flag.
+     *
+     * @return true if CSV headers should be skipped (no headers), false if headers should be written
+     */
+    public boolean isCsvMapping() {
+        return csvMapping;
     }
 
     /**
@@ -58,6 +81,7 @@ public class CommandLineArgs {
         return "CommandLineArgs{" +
                 "inputFile='" + inputFile + '\'' +
                 ", outputFile='" + outputFile + '\'' +
+                ", csvMapping=" + csvMapping +
                 '}';
     }
 }

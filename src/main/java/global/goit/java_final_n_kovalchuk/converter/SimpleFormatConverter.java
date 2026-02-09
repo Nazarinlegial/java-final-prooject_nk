@@ -40,6 +40,22 @@ public class SimpleFormatConverter implements FormatConverter {
      */
     @Override
     public void convert(File inputFile, File outputFile) throws FileConversionException {
+        convert(inputFile, outputFile, false);
+    }
+
+    /**
+     * Converts a file from one format to another with optional CSV header control.
+     * 
+     * This method automatically detects the input and output formats based on
+     * file extensions, then performs the conversion using the appropriate
+     * parser and writer.
+     *
+     * @param inputFile  the input file to convert
+     * @param outputFile the output file to write the converted data to
+     * @param csvMapping whether to skip CSV headers (true = without headers, false = with headers)
+     * @throws FileConversionException if conversion fails
+     */
+    public void convert(File inputFile, File outputFile, boolean csvMapping) throws FileConversionException {
         try {
             // Detect input and output formats
             FormatDetector.FileFormat inputFormat = FormatDetector.detectFormat(inputFile.getPath());
@@ -52,7 +68,7 @@ public class SimpleFormatConverter implements FormatConverter {
             List<DataRecord> records = parser.parse(inputFile);
 
             // Create writer based on output format
-            FileWriter<DataRecord> writer = createWriter(outputFormat);
+            FileWriter<DataRecord> writer = createWriter(outputFormat, csvMapping);
 
             // Write to output file
             writer.write(records, outputFile);
@@ -90,15 +106,16 @@ public class SimpleFormatConverter implements FormatConverter {
      * Creates the appropriate writer based on the file format.
      * 
      * @param format the file format
+     * @param csvMapping whether to skip CSV headers (true = without headers, false = with headers)
      * @return a writer for the specified format
      * @throws FileConversionException if the format is not supported
      */
-    private FileWriter<DataRecord> createWriter(FormatDetector.FileFormat format) throws FileConversionException {
+    private FileWriter<DataRecord> createWriter(FormatDetector.FileFormat format, boolean csvMapping) throws FileConversionException {
         switch (format) {
             case JSON:
                 return new JsonWriter();
             case CSV:
-                return new CsvWriter();
+                return new CsvWriter(!csvMapping);
             case XML:
                 return new XmlWriter();
             default:

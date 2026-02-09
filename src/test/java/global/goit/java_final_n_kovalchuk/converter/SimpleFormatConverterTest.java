@@ -196,4 +196,58 @@ class SimpleFormatConverterTest {
         // This should fail because we're trying to write to a directory
         assertThrows(FileConversionException.class, () -> converter.convert(inputFile, outputFile));
     }
+
+    @Test
+    void testJsonToCsvConversionWithHeaders() throws FileConversionException, IOException {
+        // Arrange
+        File inputFile = new File("src/test/resources/test_simple.json");
+        File outputFile = tempDir.resolve("output_with_headers.csv").toFile();
+
+        // Act - convert without csvMapping flag (default behavior, should include headers)
+        converter.convert(inputFile, outputFile);
+
+        // Assert
+        assertTrue(outputFile.exists(), "Output file should be created");
+        assertTrue(outputFile.length() > 0, "Output file should not be empty");
+
+        String content = Files.readString(outputFile.toPath());
+        
+        // Verify that file contains header row
+        String[] lines = content.split("\n");
+        assertTrue(lines.length > 0, "CSV should have at least one line");
+        
+        String firstLine = lines[0].trim();
+        // First line should contain field names
+        assertTrue(firstLine.contains("name"), "First line should contain field name 'name'");
+        assertTrue(firstLine.contains("age"), "First line should contain field name 'age'");
+    }
+
+    @Test
+    void testJsonToCsvConversionWithoutHeaders() throws FileConversionException, IOException {
+        // Arrange
+        File inputFile = new File("src/test/resources/test_simple.json");
+        File outputFile = tempDir.resolve("output_without_headers.csv").toFile();
+
+        // Act - convert with csvMapping=true (should skip headers)
+        converter.convert(inputFile, outputFile, true);
+
+        // Assert
+        assertTrue(outputFile.exists(), "Output file should be created");
+        assertTrue(outputFile.length() > 0, "Output file should not be empty");
+
+        String content = Files.readString(outputFile.toPath());
+        
+        // Verify that file does NOT contain header row
+        String[] lines = content.split("\n");
+        assertTrue(lines.length > 0, "CSV should have at least one line");
+        
+        String firstLine = lines[0].trim();
+        // First line should contain data values, not field names
+        assertFalse(firstLine.contains("name"), "First line should NOT contain field name 'name'");
+        assertFalse(firstLine.contains("age"), "First line should NOT contain field name 'age'");
+        
+        // Verify that data is present
+        assertTrue(content.contains("John"), "CSV should contain data");
+        assertTrue(content.contains("30"), "CSV should contain data");
+    }
 }

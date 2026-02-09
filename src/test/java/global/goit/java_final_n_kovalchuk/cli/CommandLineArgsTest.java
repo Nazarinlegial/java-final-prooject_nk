@@ -98,7 +98,7 @@ class CommandLineArgsTest {
     @Test
     void testToString() {
         CommandLineArgs args = new CommandLineArgs("input.json", "output.xml");
-        String expected = "CommandLineArgs{inputFile='input.json', outputFile='output.xml'}";
+        String expected = "CommandLineArgs{inputFile='input.json', outputFile='output.xml', csvMapping=false}";
         
         assertEquals(expected, args.toString());
     }
